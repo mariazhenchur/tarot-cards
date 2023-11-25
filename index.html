@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта дня</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            color: #333;
+        }
+        #prediction-container {
+            margin-top: 20px;
+            background: linear-gradient(to bottom, #9ad3bc, #74a8a4);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        #prediction-image {
+            max-width: 40%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #prediction-description {
+            max-width: 55%;
+            color: #fff;
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive Styles */
+        @media only screen and (max-width: 768px) {
+            #prediction-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            #prediction-image {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            #prediction-description {
+                max-width: 100%;
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Карта дня</h1>
+    
+    <button onclick="getPrediction()">Get Your Prediction</button>
+
+    <div id="prediction-container">
+        <img id="prediction-image" src="" alt="Prediction Image">
+        <p id="prediction-description"></p>
+    </div>
+
+    <script>
+        function getPrediction() {
+            const randomIndex = Math.floor(Math.random() * 3);
+
+            const imageElement = document.getElementById('prediction-image');
+            const descriptionElement = document.getElementById('prediction-description');
+
+            imageElement.src = `${randomIndex}.jpg`;
+            descriptionElement.textContent = getDescription(randomIndex);
+
+            document.getElementById('prediction-container').style.display = 'flex';
+        }
+
+        function getDescription(index) {
+            const descriptions = [
+                "Перестаньте бути своїм власним свідком, зупиніть спостереження за собою, ставайте актором у чистому вигляді, єдністю у дії. Ваша пам’ять перестане записувати факти, дії, слова. Ви втратите уявлення про час. До цього моменту ви жили на острові причин, нехтуючи іншими живими силами та іншими енергіями, єдиним з океаном підсвідомості. Краєвид розширюється. Станьте єдиним з океаном підсвідомості.",
+                "Як стати свідомим. Це просто: ви не маєте справи ні з минулим, ні з майбутнім. Немає нічого, окрім одного моменту, космічного моменту. Ви повинні раз і назавжди порвати з відхиленнями вашого его відмовитися від своїх старих ран. Ви повинні відокремити себе від усіх планів, всіх страждань, всього програмування. Тільки тоді прийде світло Свідомості. Якщо ви живете для себе зараз, смерті не існує. Ви зазнали збитків у минулому, і ви можете постраждати більше у майбутньому, але тут і зараз нічого не втрачено. Можливо, ви прагнете вдосконалення себе, покращення свого життя, але в цей момент немає прагнень. Тут є лише Ви з усім своїм потенціалом.",
+                "Знайте, тут немає нічого вашого, ви не володієте ні цим тілом, ні цими бажаннями, ні цими емоціями, ні цими думками. Все це лише Його, все це належить вічному і нескінченному невідомому, в якому ви живете. Віддайте собі Йому. Прийміть Його."
+            ];
+
+            return descriptions[index];
+        }
+    </script>
+
+</body>
+</html>
